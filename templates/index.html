@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+</head>
+<body>
+    <h1>ToDo List</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task }} <a href="{{ url_for('delete', task_id=loop.index-1) }}">[Delete]</a></li>
+        {% endfor %}
+    </ul>
+    <form action="{{ url_for('add') }}" method="post">
+        <label for="task">New Task:</label>
+        <input type="text" id="task" name="task" required>
+        <button type="submit">Add Task</button>
+    </form>
+</body>
+</html>
+
