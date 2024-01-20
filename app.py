@@ -25,6 +25,12 @@ def delete(task_id):
         del tasks[task_id]
     return redirect(url_for('index'))
 
+# ... (previous code)
+
+@app.route('/error')
+def error():
+    return render_template('error.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
